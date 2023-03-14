@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS localeats_db;
+CREATE DATABASE localeats_db;
