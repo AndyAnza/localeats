@@ -23,7 +23,7 @@ Dish.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
-        isDecimal: True,
+        isDecimal: true,
       },
     },
   },
