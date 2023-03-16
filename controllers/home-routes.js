@@ -1,23 +1,20 @@
 const router = require("express").Router();
-const { User, Dish, Comment } = require("./models");
+const { User, Dish, Comment } = require("../models");
 
-// route to get user info
 router.get("/", async (req, res) => {
-  const userData = await User.findAll().catch((err) => {
-    res.json(err);
-  });
-  const users = userData.map((user) => user.get({ plain: true }));
-  res.render("all", { users });
-});
-
-// route to get all dishes
-router.get("/", async (req, res) => {
-  const dishData = await Dish.findAll().catch((err) => {
+  const dishData = await Dish.findAll({
+    include: [{ model: User }, { model: Comment }],
+    exclude: [User.password],
+  }).catch((err) => {
     res.json(err);
   });
   const dishes = dishData.map((dish) => dish.get({ plain: true }));
-  res.render("all", { dishes });
+  console.log(dishes);
+  res.render("homepage");
 });
+
+// route to get all dishes
+router.get("/", async (req, res) => {});
 
 // route to get one dish
 router.get("/dish/:id", async (req, res) => {
