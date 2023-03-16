@@ -4,7 +4,8 @@ const { User, Dish, Comment } = require("../models");
 router.get("/", async (req, res) => {
   const dishData = await Dish.findAll({
     include: [{ model: User }, { model: Comment }],
-    exclude: [User.password],
+    attributes: { exclude: ["password"] },
+    order: [["createdAt", "DESC"]],
   }).catch((err) => {
     res.json(err);
   });
