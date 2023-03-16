@@ -1,5 +1,6 @@
 const express = require("express");
 const sequelize = require("./config/connection");
+const controller = require("./controllers");
 
 
 const app = express();
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(controller);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, console.log("Now listening"));
