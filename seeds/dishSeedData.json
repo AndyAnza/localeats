@@ -1,0 +1,26 @@
+[
+  {
+    "dish_name": "Enchiladas rojas 🤤",
+    "description": "These enchiladas rojas are like a red-hot blanket of flavor wrapped around a cozy bed of shredded chicken and cheese. One bite and you'll be transported to a world of spicy, saucy goodness.",
+    "price": 57,
+    "userId": 1
+  },
+  {
+    "dish_name": "Pozole rojo 🍲",
+    "description": "Our legit pozole recipe is like a big, warm hug in a bowl - but instead of your grandma's embrace, it's filled with tender chunks of pork, hominy, and a spicy broth that'll clear your sinuses faster than your ex clearing their Instagram photos after a breakup. Order includes a big bowl of pozole rojo plus some tostadas.",
+    "price": 77,
+    "userId": 2
+  },
+  {
+    "dish_name": "Carnitas Michoacanas 🎊",
+    "description": "Get ready for a fiesta in your mouth with our Carnitas Michoacanas! These juicy, savory, and oh-so-tender pork morsels are slow-cooked to perfection, then served with a side of happiness and a sprinkle of joy. Get yours now!!! Order includes 3 tacos.",
+    "price": 70,
+    "userId": 3
+  },
+  {
+    "dish_name": "Tacos de barbacoa 🌮",
+    "description": "Get ready to experience a flavor explosion with our barbacoa! It's so tender, it'll make you forget all your problems and even have you questioning the meaning of life. Get your order of 3 tacos now for only 60 pesos!!",
+    "price": 60,
+    "userId": 4
+  }
+]

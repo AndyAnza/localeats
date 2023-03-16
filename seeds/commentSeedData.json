@@ -1,26 +1,18 @@
 [
   {
-    "user_name": "Noah",
-    "email": "noah@hotmail.com",
-    "phone": "5544332211",
-    "password": "password1234"
+    "notes": "I am absolutely blown away by this home-made pozole! I've been craving a good bowl of pozole for weeks and decided to give this app a try. Let me tell you, I was not disappointed. The pozole was perfectly seasoned, and the broth was rich and flavorful. I loved the generous portions of tender pork and the hearty hominy, which were the perfect complement to the savory broth. Plus, the toppings like radish, avocado, and lime really took it to the next level. I will definitely be a repeat customer and can't wait to try more dishes from this app!",
+    "userId": 5
   },
   {
-    "user_name": "Jules",
-    "email": "jules@hotmail.com",
-    "phone": "5533221100",
-    "password": "1234password"
+    "notes": "This enchiladas rojas are truly glorious! The sauce was flavorful with just the right amount of spice and the chicken was cooked to perfection. The portion size was generous and I was able to enjoy leftovers the next day. The delivery was also timely and the food arrived hot and fresh. Overall, I highly recommend giving these enchiladas a try!",
+    "userId": 6
   },
   {
-    "user_name": "Patrick",
-    "email": "patrick@hotmail.com",
-    "phone": "5566778899",
-    "password": "bblink182"
+    "notes": "This carnitas michoacanas are absolutely delicious - tender, flavorful, and perfectly seasoned. Overall, I highly recommend this online app for anyone looking to satisfy their carnitas michoacanas cravings!",
+    "userId": 5
   },
   {
-    "user_name": "Louie",
-    "email": "louie@hotmail.com",
-    "phone": "5588997744",
-    "password": "parcels1234"
+    "notes": "10/10! This tacos de barbacoa are legit the best in town, highly recommended ⭐⭐⭐⭐⭐",
+    "userId": 6
   }
 ]
