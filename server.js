@@ -13,7 +13,6 @@ app.set("view engine", "handlebars");
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(require("./controllers"));
-
 app.use(express.static("public"));
 
 app.get("/", (req, res) => {
