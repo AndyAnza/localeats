@@ -3,19 +3,22 @@ const { User, Dish, Comment } = require("../models");
 
 router.get("/", async (req, res) => {
   const dishData = await Dish.findAll({
-    include: [{ model: User }, { model: Comment }],
-    attributes: { exclude: ["password"] },
+    include: [
+      { model: User, attributes: { exclude: ["password"] } },
+      // { model: Comment },
+    ],
     order: [["createdAt", "DESC"]],
   }).catch((err) => {
     res.json(err);
   });
   const dishes = dishData.map((dish) => dish.get({ plain: true }));
   console.log(dishes);
-  res.render("homepage");
+  //res.status(200).json(dishes);
+  res.render("homepage", {
+    dishes,
+    //loggedIn: req.session.loggedIn,
+  });
 });
-
-// route to get all dishes
-router.get("/", async (req, res) => {});
 
 // route to get one dish
 router.get("/dish/:id", async (req, res) => {
