@@ -10,8 +10,10 @@ const hbs = exphbs.create({});
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+require("dotenv").config();
+
 const sess = {
-  secret: 'TOP secret secret', // use .env in production
+  secret: process.env.SECRET,
   resave: false,
   saveUninitialized: true,
 };
