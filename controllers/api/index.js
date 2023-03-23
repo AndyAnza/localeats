@@ -5,5 +5,4 @@ const dishRoutes = require("./dish-routes");
 router.use("/user", userRoutes);
 router.use("/dish", dishRoutes);
 
-
 module.exports = router;
