@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "styles": "npx tailwindcss -i ./public/style/style.css -o ./public/style/style-build.css .css --watch --verbose",
-    "devStart": "nodemon server.js",
+    "styles": "npx tailwindcss -i ./public/style/dev-style.css -o ./public/style/style.css .css --watch --verbose",
+    "build-styles": "npx tailwindcss -i ./public/style/dev-style.css -o ./public/style/style.css .css",
+    "start": "nodemon server.js",
+    "build": "npm run build-styles && node server.js",
     "seed": "node seeds/seed.js"
   },
   "repository": {
