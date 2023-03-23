@@ -1,5 +1,5 @@
 const express = require("express");
-const session = require('express-session');
+const session = require("express-session");
 
 const sequelize = require("./config/connection");
 const controller = require("./controllers");
@@ -32,20 +32,22 @@ app.get("/", (req, res) => {
   res.render("homepage", { layout: "main" });
 });
 
-const data = [{
-  dishName: 'Spaghetti',
-  author: 'Mauricio',
-  description: 'classic italian dish',
-  availability: '03/21/2023',
-  price: '$10'
-},
-{
-  dishName: 'Spaghetti',
-  author: 'Mauricio2',
-  description: 'classic italian dish',
-  availability: '03/21/2023',
-  price: '$10'
-}]
+const data = [
+  {
+    dishName: "Spaghetti",
+    author: "Mauricio",
+    description: "classic italian dish",
+    availability: "03/21/2023",
+    price: "$10",
+  },
+  {
+    dishName: "Spaghetti",
+    author: "Mauricio2",
+    description: "classic italian dish",
+    availability: "03/21/2023",
+    price: "$10",
+  },
+];
 
 app.get("/card", (req, res) => {
   res.render("timeline", { layout: "main", data });
@@ -58,5 +60,3 @@ app.use(controller);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, console.log("Now listening"));
 });
-
-
