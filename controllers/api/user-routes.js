@@ -15,7 +15,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//create new user 
+//create new user
 router.post("/", async (req, res) => {
   try {
     const userData = await User.create({
@@ -25,12 +25,8 @@ router.post("/", async (req, res) => {
       password: req.body.password,
     });
 
-
-
-     req.session.save(() => {
+    req.session.save(() => {
       req.session.loggedIn = true;
-
-      
     });
     res.status(200).json(userData);
   } catch (err) {
@@ -40,7 +36,7 @@ router.post("/", async (req, res) => {
 });
 
 // Login
-router.post('/login', async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
       where: {
@@ -51,7 +47,7 @@ router.post('/login', async (req, res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
 
@@ -60,7 +56,7 @@ router.post('/login', async (req, res) => {
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
+        .json({ message: "Incorrect email or password. Please try again!" });
       return;
     }
 
@@ -70,7 +66,7 @@ router.post('/login', async (req, res) => {
 
       res
         .status(200)
-        .json({ user: userData, message: 'You are now logged in!' });
+        .json({ user: userData, message: "You are now logged in!" });
     });
   } catch (err) {
     console.log(err);
@@ -79,7 +75,7 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
-router.post('/logout', (req, res) => {
+router.post("/logout", (req, res) => {
   // When the user logs out, destroy the session
   if (req.session.loggedIn) {
     req.session.destroy(() => {
