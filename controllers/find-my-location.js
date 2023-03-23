@@ -2,6 +2,7 @@ const findMyLocation = () => {
             
     const state = document.getElementById('state')
     const city = document.getElementById('city')
+    const mapLink = document.getElementById('map-link')
 
     const success = (position) => {
         console.log(position);
@@ -17,6 +18,8 @@ const findMyLocation = () => {
             state.textContent = data.principalSubdivision
             city.textContent = data.locality
             console.log(data);
+
+        city.href = `https://www.openstreetmap.org/#map=18/${latitude}/${longitude}`;
         })
     }
 
