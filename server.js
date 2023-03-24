@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -6,8 +7,6 @@ const controller = require("./controllers");
 const helpers = require("./utils/helpers");
 
 const exphbs = require("express-handlebars");
-const path = require("path");
-const hbs = exphbs.create({ helpers });
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -31,22 +30,23 @@ const sess = {
 
 app.use(session(sess));
 
+const hbs = exphbs.create({ helpers });
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
-app.use(require("./controllers"));
-
-app.get("/", (req, res) => {
-  res.render("homepage", { layout: "main" });
-});
-
-app.get("/card", (req, res) => {
-  res.render("timeline", { layout: "main", data });
-});
-
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, "public")));
+// app.use(require("./controllers"));
+
+// app.get("/", (req, res) => {
+//   res.render("homepage", { layout: "main" });
+// });
+
+// app.get("/user", (req, res) => {
+//   res.render("timeline", { layout: "main", data });
+// });
+
 app.use(controller);
 
 sequelize.sync({ force: false }).then(() => {
