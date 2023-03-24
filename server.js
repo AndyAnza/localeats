@@ -1,6 +1,6 @@
 const express = require("express");
 const session = require("express-session");
-
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sequelize = require("./config/connection");
 const controller = require("./controllers");
 const helpers = require("./utils/helpers");
@@ -16,8 +16,17 @@ require("dotenv").config();
 
 const sess = {
   secret: process.env.SECRET,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,
+    httpOnly: false, // change once we have https cert
+    secure: false, // change to true before deployment
+    sameSite: 'lax',
+  },
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
@@ -25,6 +34,7 @@ app.use(session(sess));
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(require("./controllers"));
 app.use(express.static("public"));
@@ -33,28 +43,10 @@ app.get("/", (req, res) => {
   res.render("homepage", { layout: "main" });
 });
 
-const data = [
-  {
-    dishName: "Spaghetti",
-    author: "Mauricio",
-    description: "classic italian dish",
-    availability: "03/21/2023",
-    price: "$10",
-  },
-  {
-    dishName: "Spaghetti",
-    author: "Mauricio2",
-    description: "classic italian dish",
-    availability: "03/21/2023",
-    price: "$10",
-  },
-];
-
 app.get("/card", (req, res) => {
   res.render("timeline", { layout: "main", data });
 });
 
-app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(controller);
 

@@ -21,7 +21,7 @@ User.init(
       allowNull: false,
       validate: {
         isAlphanumeric: true,
-      }
+      },
     },
     email: {
       type: DataTypes.STRING,
@@ -35,9 +35,12 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
+
     location: {
       type: DataTypes.STRING,
     },
+
+
     password: {
       type: DataTypes.STRING,
       allowNull: false,

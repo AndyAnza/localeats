@@ -26,6 +26,9 @@ Dish.init(
         isDecimal: true,
       },
     },
+    // location: {
+    //   //<--TODO
+    // },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
