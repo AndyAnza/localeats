@@ -1,6 +1,6 @@
 const express = require("express");
 const session = require("express-session");
-
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sequelize = require("./config/connection");
 const controller = require("./controllers");
 const helpers = require("./utils/helpers");
@@ -16,8 +16,17 @@ require("dotenv").config();
 
 const sess = {
   secret: process.env.SECRET,
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000,
+    httpOnly: false, // change once we have https cert
+    secure: false, // change to true before deployment
+    sameSite: 'lax',
+  },
   resave: false,
   saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize,
+  }),
 };
 
 app.use(session(sess));
