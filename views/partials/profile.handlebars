@@ -1,0 +1,178 @@
+<!--
+  This example requires some changes to your config:
+  
+  ```
+  // tailwind.config.js
+  module.exports = {
+    // ...
+    plugins: [
+      // ...
+      require('@tailwindcss/forms'),
+    ],
+  }
+  ```
+-->
+<div>
+  <div class="relative overflow-hidden bg-orange-500 pb-32">
+    <!-- Menu open: "bg-sky-900", Menu closed: "bg-transparent" -->
+
+    <!-- Menu open: "bottom-0", Menu closed: "inset-y-0" -->
+    <div aria-hidden="true" class="absolute inset-y-0 inset-x-0 left-1/2 w-full -translate-x-1/2 transform overflow-hidden lg:inset-y-0">
+      <div class="absolute inset-0 flex">
+        <div class="h-full w-1/2" style="background-color: #FF8A00"></div>
+        <div class="h-full w-1/2" style="background-color: #FF8A00"></div>
+      </div>
+      <div class="relative flex justify-center">
+        <svg class="flex-shrink-0" width="1750" height="308" viewBox="0 0 1750 308">
+          <path d="M284.161 308H1465.84L875.001 182.413 284.161 308z" fill="#FFD29E" />
+          <path d="M1465.84 308L16.816 0H1750v308h-284.16z" fill="#FF8A00" />
+          <path d="M1733.19 0L284.161 308H0V0h1733.19z" fill="#FF8A00" />
+          <path d="M875.001 182.413L1733.19 0H16.816l858.185 182.413z" fill="#FFAC4B" />
+        </svg>
+      </div>
+    </div>
+    <header class="relative py-10">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold tracking-tight text-white"></h1>
+      </div>
+    </header>
+  </div>
+
+  <main class="relative -mt-32">
+    <div class="mx-auto max-w-screen-xl px-4 pb-6 sm:px-6 lg:px-8 lg:pb-16">
+      <div class="overflow-hidden rounded-lg bg-white shadow">
+        <div class="divide-y divide-gray-200 lg:grid lg:grid-cols-12 lg:divide-y-0 lg:divide-x">
+          <aside class="py-6 lg:col-span-3">
+            <nav class="space-y-1">
+              <!-- Current: "border-teal-500 bg-teal-50 text-teal-700 hover:bg-teal-50 hover:text-teal-700", Default: "border-transparent text-gray-900 hover:bg-gray-50 hover:text-gray-900" -->
+              <a href="#" class="group flex items-center border-l-4 border-orange-500 bg-orange-50 px-3 py-2 text-sm font-medium text-orange-500 hover:bg-teal-50 hover:text-orange-700" aria-current="page">
+                <!-- Current: "text-teal-500 group-hover:text-teal-500", Default: "text-gray-400 group-hover:text-gray-500" -->
+                <svg class="-ml-1 mr-3 h-6 w-6 flex-shrink-0 text-orange-500 group-hover:text-orange-500" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                <span class="truncate">Profile</span>
+              </a>
+            </nav>
+          </aside>
+
+          <form class="divide-y divide-gray-200 lg:col-span-9" action="#" method="POST">
+            <!-- Profile section -->
+            <div class="py-6 px-4 sm:p-6 lg:pb-8">
+              <div>
+                <h2 class="text-lg font-medium leading-6 text-gray-900">Update your contact information 🎫</h2>
+                <p class="mt-1 text-sm text-gray-500">This information will be displayed when someone looks your profile.</p>
+              </div>
+
+              <div class="mt-6 flex flex-col lg:flex-row">
+                <div class="flex-grow space-y-6">
+                  <div>
+                    <label for="username" class="block text-sm font-medium leading-6 text-gray-900">Username</label>
+                    <div class="mt-2 flex rounded-md shadow-sm">
+                      <span class="inline-flex items-center rounded-l-md border border-r-0 border-gray-300 px-3 text-gray-500 sm:text-sm">localeats.com/</span>
+                      <input type="text" name="username" id="username" autocomplete="username" class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" value=" ramiro.grill.lover" />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About/Food inspiration 🥡 </label>
+                    <div class="mt-2">
+                      <textarea id="about" name="about" rows="3" class="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:py-1.5 sm:text-sm sm:leading-6"></textarea>
+                    </div>
+                    <p class="mt-2 text-sm text-gray-500">Brief description for your profile. URLs are hyperlinked.</p>
+                  </div>
+                </div>
+
+                <div class="mt-6 flex-grow lg:mt-0 lg:ml-6 lg:flex-shrink-0 lg:flex-grow-0">
+                  <p class="text-sm font-medium leading-6 text-gray-900" aria-hidden="true">Photo</p>
+                  <div class="mt-2 lg:hidden">
+                    <div class="flex items-center">
+                      <div class="inline-block h-12 w-12 flex-shrink-0 overflow-hidden rounded-full" aria-hidden="true">
+                        <img class="h-full w-full rounded-full" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80" alt="" />
+                      </div>
+                      <div class="relative ml-5">
+                        <input id="mobile-user-photo" name="user-photo" type="file" class="peer absolute h-full w-full rounded-md opacity-0" />
+                        <label for="mobile-user-photo" class="pointer-events-none block rounded-md py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 peer-hover:ring-gray-400 peer-focus:ring-2 peer-focus:ring-sky-500">
+                          <span>Change</span>
+                          <span class="sr-only"> user photo</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="relative hidden overflow-hidden rounded-full lg:block">
+                    <img class="relative h-40 w-40 rounded-full" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=320&h=320&q=80" alt="" />
+                    <label for="desktop-user-photo" class="absolute inset-0 flex h-full w-full items-center justify-center bg-black bg-opacity-75 text-sm font-medium text-white opacity-0 focus-within:opacity-100 hover:opacity-100">
+                      <span>Change</span>
+                      <span class="sr-only"> user photo</span>
+                      <input type="file" id="desktop-user-photo" name="user-photo" class="absolute inset-0 h-full w-full cursor-pointer rounded-md border-gray-300 opacity-0" />
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 grid grid-cols-12 gap-6">
+                <div class="col-span-12 sm:col-span-6">
+                  <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
+                  <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" />
+                </div>
+
+                <div class="col-span-12 sm:col-span-6">
+                  <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
+                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" />
+                </div>
+
+
+                <div class="col-span-12 sm:col-span-6">
+                  <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Whatsapp </label>
+                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" />
+                </div>
+
+                <div class="col-span-12 sm:col-span-6">
+                  <label for="company" class="block text-sm font-medium leading-6 text-gray-900">Email </label>
+                  <input type="text" name="company" id="company" autocomplete="organization" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" />
+                </div>
+              </div>
+            </div>
+
+            <!-- Privacy section -->
+            <div class="divide-y divide-gray-200 pt-6">
+              <div class="px-4 sm:px-6">
+                <div>
+                  <h2 class="text-lg font-medium leading-6 text-gray-900">Privacy</h2>
+   
+                </div>
+                <ul role="list" class="mt-2 divide-y divide-gray-200">
+                  <li class="flex items-center justify-between py-4">
+                    <div class="flex flex-col">
+                      <p class="text-sm font-medium leading-6 text-gray-900" id="privacy-option-1-label">Accept LocalEats Cookies</p>
+                      <p class="text-sm text-gray-500" id="privacy-option-1-description"> 🍪 You will find better cookies than this in Local Eats</p>
+                    </div>
+                    <!-- Enabled: "bg-teal-500", Not Enabled: "bg-gray-200" -->
+                    <button type="button" class="relative ml-4 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2" role="switch" aria-checked="true" aria-labelledby="privacy-option-1-label" aria-describedby="privacy-option-1-description">
+                      <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                      <span aria-hidden="true" class="inline-block h-5 w-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                    </button>
+                  </li>
+                  <li class="flex items-center justify-between py-4">
+                    <div class="flex flex-col">
+                      <p class="text-sm font-medium leading-6 text-gray-900" id="privacy-option-2-label">Share my contact number when my dish is sold </p>
+                      <p class="text-sm text-gray-500" id="privacy-option-2-description">By allowing this, you accept we share your number when someone buys your dish.</p>
+                    </div>
+                    <!-- Enabled: "bg-teal-500", Not Enabled: "bg-gray-200" -->
+                    <button type="button" class="relative ml-4 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2" role="switch" aria-checked="false" aria-labelledby="privacy-option-2-label" aria-describedby="privacy-option-2-description">
+                      <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
+                      <span aria-hidden="true" class="inline-block h-5 w-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
+                    </button>
+                </ul>
+              </div>
+              <div class="mt-4 flex justify-end gap-x-3 py-4 px-4 sm:px-6">
+                <button type="button" class="inline-flex justify-center rounded-md bg-white py-2 px-3 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">Cancel</button>
+                <button type="submit" class="inline-flex justify-center rounded-md bg-orange-500 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500">Save</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
