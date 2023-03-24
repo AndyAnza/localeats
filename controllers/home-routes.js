@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { User, Dish, Comment } = require("../models");
+const { User, Dish } = require("../models");
 
 router.get("/", async (req, res) => {
   try {
@@ -12,6 +12,24 @@ router.get("/", async (req, res) => {
     res.render("homepage", { dishes });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.post("/", async (req, res) => {
+  try {
+    const { dish_name, description, price, userId } = req.body;
+    if (!dish_name || !description || !price || !userId) {
+      return res.status(400).json({ error: "Missing required properties" });
+    }
+    const newDish = await Dish.create({
+      dish_name,
+      description,
+      price,
+      userId,
+    });
+    res.status(202).json({ message: "Dish created", dish: newDish });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
   }
 });
 
