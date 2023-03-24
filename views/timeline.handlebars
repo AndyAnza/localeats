@@ -19,7 +19,7 @@
               <time datetime="2020-03-16" class="text-gray-500">Posted on: {{format_date createdAt}}</time>
               <a href="#" class="relative z-10 rounded-full bg-gray-50 py-1.5 px-3 font-medium text-orange-500 hover:bg-orange-200">${{price}} MXN</a>
               {{!-- delete button --}}
-              <button type="submit" id="deleteDishBtn" data-dish-id="{{id}}" data-user-id="{{userId}}" class="relative z-10 rounded-full bg-gray-50 py-1.5 px-3 font-medium text-orange-500 hover:bg-orange-200">Delete</button>
+              <button type="submit" data-dish-id="{{id}}" data-user-id="{{userId}}" class="deleteDishBtn relative z-10 rounded-full bg-gray-50 py-1.5 px-3 font-medium text-orange-500 hover:bg-orange-200">Delete</button>
               {{!-- update button --}}
               <button type="submit" id="updateDishBtn" class="relative z-10 rounded-full bg-gray-50 py-1.5 px-3 font-medium text-orange-500 hover:bg-orange-200">Update</button>
             </div>
