@@ -33,7 +33,7 @@ Dish.init(
         model: "user",
         key: "id",
       },
-    },
+    }
   },
   {
     sequelize,
@@ -43,5 +43,7 @@ Dish.init(
     modelName: "dish",
   }
 );
+
+
 
 module.exports = Dish;
