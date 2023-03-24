@@ -1,6 +1,6 @@
 const express = require("express");
 const session = require("express-session");
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sequelize = require("./config/connection");
 const controller = require("./controllers");
 const helpers = require("./utils/helpers");
@@ -20,7 +20,7 @@ const sess = {
     maxAge: 24 * 60 * 60 * 1000,
     httpOnly: false, // change once we have https cert
     secure: false, // change to true before deployment
-    sameSite: 'lax',
+    sameSite: "lax",
   },
   resave: false,
   saveUninitialized: true,
@@ -37,7 +37,6 @@ app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(require("./controllers"));
-app.use(express.static("public"));
 
 app.get("/", (req, res) => {
   res.render("homepage", { layout: "main" });
