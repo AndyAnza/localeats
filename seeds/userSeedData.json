@@ -3,36 +3,42 @@
     "user_name": "Noah",
     "email": "noah@hotmail.com",
     "phone": "5544332211",
-    "password": "password1234"
+    "password": "password1234",
+    "location": "Mexico"
   },
   {
     "user_name": "Jules",
     "email": "jules@hotmail.com",
     "phone": "5533221100",
-    "password": "1234password"
+    "password": "1234password",
+    "location": "Veracruz"
   },
   {
     "user_name": "Patrick",
     "email": "patrick@hotmail.com",
     "phone": "5566778899",
-    "password": "bblink182"
+    "password": "bblink182",
+    "location": "Veracruz"
   },
   {
     "user_name": "Louie",
     "email": "louie@hotmail.com",
     "phone": "5588997744",
-    "password": "parcels1234"
+    "password": "parcels1234",
+    "location": "Veracruz"
   },
   {
     "user_name": "Ellie",
     "email": "ellie@gmail.com",
     "phone": "5512398745",
-    "password": "nopunintendedvol1"
+    "password": "nopunintendedvol1",
+    "location": "Veracruz"
   },
   {
     "user_name": "Tess",
     "email": "tess@gmail.com",
     "phone": "5578965412",
-    "password": "fedrasucks1234"
+    "password": "fedrasucks1234",
+    "location": "Veracruz"
   }
 ]
