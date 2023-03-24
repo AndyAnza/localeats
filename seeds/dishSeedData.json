@@ -22,5 +22,11 @@
     "description": "Get ready to experience a flavor explosion with our barbacoa! It's so tender, it'll make you forget all your problems and even have you questioning the meaning of life. Get your order of 3 tacos now for only 60 pesos!!",
     "price": 60,
     "userId": 2
+  },
+  {
+    "dish_name": "Hamburgesas 🍔",
+    "description": "Best burgers in town, come check them out!!.",
+    "price": 45,
+    "userId": 1
   }
 ]
