@@ -22,10 +22,7 @@ router.get("/:id", async (req, res) => {
 
 router.get("/login", async (req, res) => {
   try {
-    const userData = await User.findAll({
-      include: [{ model: Dish }],
-      //   order: [["createdAt", "DESC"]],
-    });
+    const userData = await User.findAll();
     const users = userData.map((user) => user.get({ plain: true }));
     console.log(users);
     res.render("login", { users });

@@ -32,3 +32,16 @@ async function newFormHandler(event) {
 document
   .querySelector("#newDishForm")
   .addEventListener("submit", newFormHandler);
+
+// NEW DISH MODAL
+const modalCard = document.getElementById("modalCard");
+const newDishBtn = document.getElementById("newDishBtn");
+const cancelBtn = document.getElementById("cancelBtn");
+// Add a click event listener to the cancel button in the modal to close.
+cancelBtn.addEventListener("click", () => {
+  modalCard.classList.add("invisible");
+});
+// Modal appears after click New Dish Button.
+newDishBtn.addEventListener("click", () => {
+  modalCard.classList.remove("invisible");
+});
