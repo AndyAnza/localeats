@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Dish, Comment } = require("../models");
 
 //GET User by Id
-router.get("/:id", async (req, res) => {
+router.get("/login/:id", async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
       include: [{ model: Dish }],
@@ -20,6 +20,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//Get all users to log in
 router.get("/login", async (req, res) => {
   try {
     const userData = await User.findAll();
