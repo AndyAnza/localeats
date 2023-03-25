@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User = require("../../models/User");
 
 // Get One User for LogIn
-router.get("/:id", async (req, res) => {
+router.get("/login/:id", async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id);
     if (!userData) {
@@ -17,7 +17,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //create new user
-router.post("/", async (req, res) => {
+router.post("/new", async (req, res) => {
   try {
     const userData = await User.create({
       user_name: req.body.user_name,
