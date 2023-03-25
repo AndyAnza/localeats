@@ -1,8 +1,28 @@
 const router = require("express").Router();
 const User = require("../../models/User");
 
+//API to create new user
+router.post("/new", async (req, res) => {
+  try {
+    const { user_name, email, phone, location, password } = req.body;
+    if (!user_name || !email || !password) {
+      return res.status(400).json({ error: "Missing required properties" });
+    }
+    const newUser = await User.create({
+      user_name,
+      email,
+      phone,
+      location,
+      password,
+    });
+    res.status(202).json({ message: "New User created", user: newUser });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
 // API to UPDATE a user
-router.put("/:id", async (req, res) => {
+router.put("/{userId}", async (req, res) => {
   try {
     const userData = await User.update(req.body, {
       where: {

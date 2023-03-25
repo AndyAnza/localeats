@@ -14,7 +14,7 @@ router.get("/login/:id", async (req, res) => {
       return;
     }
     console.log(userPosts);
-    res.render("timeline", { userPosts });
+    res.render("pages/timeline", { userPosts });
   } catch (err) {
     res.status(500).json(err);
   }
