@@ -15,7 +15,6 @@
 <div>
   <div class="relative overflow-hidden bg-orange-500 pb-32">
     <!-- Menu open: "bg-sky-900", Menu closed: "bg-transparent" -->
-
     <!-- Menu open: "bottom-0", Menu closed: "inset-y-0" -->
     <div aria-hidden="true" class="absolute inset-y-0 inset-x-0 left-1/2 w-full -translate-x-1/2 transform overflow-hidden lg:inset-y-0">
       <div class="absolute inset-0 flex">
@@ -72,16 +71,13 @@
                       <input type="text" name="username" id="username" autocomplete="username" class="block w-full min-w-0 flex-grow rounded-none rounded-r-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" value=" ramiro.grill.lover" />
                     </div>
                   </div>
-
                   <div>
-                    <label for="about" class="block text-sm font-medium leading-6 text-gray-900">About/Food inspiration 🥡 </label>
-                    <div class="mt-2">
-                      <textarea id="about" name="about" rows="3" class="mt-1 block w-full rounded-md border-0 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-500 sm:py-1.5 sm:text-sm sm:leading-6"></textarea>
+                    <div class="col-span-12 sm:col-span-6">
+                      <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Whatsapp</label>
+                      <input type="text" name="whatsapp" id="whatsapp" autocomplete="given-name" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" value=" +52" />
                     </div>
-                    <p class="mt-2 text-sm text-gray-500">Brief description for your profile. URLs are hyperlinked.</p>
                   </div>
                 </div>
-
                 <div class="mt-6 flex-grow lg:mt-0 lg:ml-6 lg:flex-shrink-0 lg:flex-grow-0">
                   <p class="text-sm font-medium leading-6 text-gray-900" aria-hidden="true">Photo</p>
                   <div class="mt-2 lg:hidden">
@@ -109,24 +105,7 @@
                   </div>
                 </div>
               </div>
-
               <div class="mt-6 grid grid-cols-12 gap-6">
-                <div class="col-span-12 sm:col-span-6">
-                  <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
-                  <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" />
-                </div>
-
-                <div class="col-span-12 sm:col-span-6">
-                  <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
-                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" />
-                </div>
-
-
-                <div class="col-span-12 sm:col-span-6">
-                  <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Whatsapp </label>
-                  <input type="text" name="last-name" id="last-name" autocomplete="family-name" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" />
-                </div>
-
                 <div class="col-span-12 sm:col-span-6">
                   <label for="company" class="block text-sm font-medium leading-6 text-gray-900">Email </label>
                   <input type="text" name="company" id="company" autocomplete="organization" class="mt-2 block w-full rounded-md border-0 px-3 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:border-0 focus:ring-2 focus:ring-inset focus:ring-orange-500 sm:text-sm sm:leading-6" />
@@ -139,13 +118,12 @@
               <div class="px-4 sm:px-6">
                 <div>
                   <h2 class="text-lg font-medium leading-6 text-gray-900">Privacy</h2>
-   
                 </div>
                 <ul role="list" class="mt-2 divide-y divide-gray-200">
                   <li class="flex items-center justify-between py-4">
                     <div class="flex flex-col">
                       <p class="text-sm font-medium leading-6 text-gray-900" id="privacy-option-1-label">Accept LocalEats Cookies</p>
-                      <p class="text-sm text-gray-500" id="privacy-option-1-description"> 🍪 You will find better cookies than this in Local Eats</p>
+                      <p class="text-sm text-gray-500" id="privacy-option-1-description">🍪 You will find better cookies than this in Local Eats</p>
                     </div>
                     <!-- Enabled: "bg-teal-500", Not Enabled: "bg-gray-200" -->
                     <button type="button" class="relative ml-4 inline-flex h-6 w-11 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent bg-gray-200 transition-colors duration-200 ease-in-out focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2" role="switch" aria-checked="true" aria-labelledby="privacy-option-1-label" aria-describedby="privacy-option-1-description">
@@ -155,7 +133,7 @@
                   </li>
                   <li class="flex items-center justify-between py-4">
                     <div class="flex flex-col">
-                      <p class="text-sm font-medium leading-6 text-gray-900" id="privacy-option-2-label">Share my contact number when my dish is sold </p>
+                      <p class="text-sm font-medium leading-6 text-gray-900" id="privacy-option-2-label">Share my contact number when my dish is sold</p>
                       <p class="text-sm text-gray-500" id="privacy-option-2-description">By allowing this, you accept we share your number when someone buys your dish.</p>
                     </div>
                     <!-- Enabled: "bg-teal-500", Not Enabled: "bg-gray-200" -->
@@ -163,6 +141,7 @@
                       <!-- Enabled: "translate-x-5", Not Enabled: "translate-x-0" -->
                       <span aria-hidden="true" class="inline-block h-5 w-5 translate-x-0 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out"></span>
                     </button>
+                  </li>
                 </ul>
               </div>
               <div class="mt-4 flex justify-end gap-x-3 py-4 px-4 sm:px-6">
