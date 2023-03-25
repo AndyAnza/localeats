@@ -15,6 +15,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// CREATE NEW DISH FROM MODAL ROUTE
 router.post("/", async (req, res) => {
   try {
     const { dish_name, description, price, userId } = req.body;

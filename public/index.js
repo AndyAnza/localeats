@@ -1,32 +1,47 @@
 async function newFormHandler(event) {
   event.preventDefault();
-  // const userId = document.querySelector("#userId").value;
   const dish_name = document.querySelector("#dish_name").value;
   const description = document.querySelector("#description").value;
   const price = document.querySelector("#price").value;
-
+  // const userId = document.querySelector("#userId").value;
+  console.log(event);
   // Send fetch request to add a new dish
-  console.log(newFormHandler);
   const response = await fetch(`/`, {
     method: "POST",
     body: JSON.stringify({
       dish_name,
       description,
       price,
-      // userId,
+      userId: 1,
     }),
     headers: {
       "Content-Type": "application/json",
     },
   });
-  //if the dish is added, the 'all' template will be rerendered
+
+  // If the dish is added, the 'all' template will be rerendered
   if (response.ok) {
-    console.log(`this is working`); //this refreshes the page to load with new data.
+    console.log(`Dish created`);
+    // Reload the page to display the new dish
+    location.reload();
   } else {
-    console.log(`this is NOT working`);
+    console.log(`Failed to create dish`);
   }
 }
 
 document
-  .querySelector("#newDishBtn")
+  .querySelector("#newDishForm")
   .addEventListener("submit", newFormHandler);
+
+// NEW DISH MODAL
+const modalCard = document.getElementById("modalCard");
+const newDishBtn = document.getElementById("newDishBtn");
+const cancelBtn = document.getElementById("cancelBtn");
+// Add a click event listener to the cancel button in the modal to close.
+cancelBtn.addEventListener("click", () => {
+  modalCard.classList.add("invisible");
+});
+// Modal appears after click New Dish Button.
+newDishBtn.addEventListener("click", () => {
+  modalCard.classList.remove("invisible");
+});
