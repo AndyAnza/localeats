@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     });
     const dishes = dishData.map((dish) => dish.get({ plain: true }));
     console.log(dishes);
-    res.render("homepage", { dishes });
+    res.render("pages/homepage", { dishes });
   } catch (err) {
     res.status(500).json(err);
   }

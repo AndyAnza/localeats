@@ -14,7 +14,7 @@ router.get("/:id", async (req, res) => {
       return;
     }
     console.log(userPosts);
-    res.render("dashboard", { userPosts });
+    res.render("pages/dashboard", { userPosts });
   } catch (err) {
     res.status(500).json(err);
   }

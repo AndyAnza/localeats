@@ -9,7 +9,7 @@ router.get("/login", async (req, res) => {
     });
     const users = userData.map((user) => user.get({ plain: true }));
     console.log(users);
-    res.render("login", { users });
+    res.render("pages/login", { users });
   } catch (err) {
     res.status(500).json(err);
   }

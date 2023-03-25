@@ -2,12 +2,18 @@ const express = require("express");
 const session = require("express-session");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sequelize = require("./config/connection");
-const controller = require("./controllers");
+const controllers = require("./controllers");
 const helpers = require("./utils/helpers");
 
 const exphbs = require("express-handlebars");
 const path = require("path");
-const hbs = exphbs.create({ helpers });
+const hbs = exphbs.create({ 
+  // Specify the folder for partials
+  partialsDir: 'views/partials',
+  helpers,
+  // Specify the layout template
+  defaultLayout: 'main'
+});
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,19 +42,18 @@ app.set("view engine", "handlebars");
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(require("./controllers"));
 app.use(express.static("public"));
 
-app.get("/", (req, res) => {
-  res.render("homepage", { layout: "main" });
-});
+// app.get("/", (req, res) => {
+//   res.render("homepage", { layout: "main" });
+// });
 
-app.get("/card", (req, res) => {
-  res.render("timeline", { layout: "main", data });
-});
+// app.get("/card", (req, res) => {
+//   res.render("timeline", { layout: "main", data });
+// });
 
 app.use(express.urlencoded({ extended: true }));
-app.use(controller);
+app.use(controllers);
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, console.log("Now listening"));
