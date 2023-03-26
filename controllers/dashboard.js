@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { User, Dish } = require("../models");
+const withAuth = require('../utils/auth');
 
 // route to get one user and its dishes
-router.get("/:id", async (req, res) => {
+router.get("/:id", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id, {
       include: [{ model: Dish }],
@@ -14,14 +15,14 @@ router.get("/:id", async (req, res) => {
       return;
     }
     console.log(userPosts);
-    res.render("pages/dashboard", { userPosts });
+    res.render("pages/dashboard", { userPosts, countVisit: req.session.countVisit, loggedIn: req.session.loggedIn, });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // route to create/add a dish using async/await
-router.post("/new-dish", async (req, res) => {
+router.post("/new-dish", withAuth, async (req, res) => {
   try {
     const dishData = await Dish.create(req.body);
     console.log(dishData);

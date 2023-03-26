@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Dish, Comment } = require("../models");
+const withAuth = require('../utils/auth');
 
 //GET User by Id
 router.get("/login/:id", async (req, res) => {
@@ -14,7 +15,7 @@ router.get("/login/:id", async (req, res) => {
       return;
     }
     console.log(userPosts);
-    res.render("pages/timeline", { userPosts });
+    res.render("pages/timeline", { userPosts, countVisit: req.session.countVisit,  loggedIn: req.session.loggedIn, });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -26,13 +27,17 @@ router.get("/login", async (req, res) => {
     const userData = await User.findAll();
     const users = userData.map((user) => user.get({ plain: true }));
     console.log(users);
+    if (req.session.loggedIn) {
+      res.redirect('/');
+      return;
+    };
     res.render("pages/login", { users });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.delete("/:userId/:dishId", async (req, res) => {
+router.delete("/:userId/:dishId", withAuth, async (req, res) => {
   try {
     const { userId, dishId } = req.params;
 
