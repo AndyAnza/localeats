@@ -29,7 +29,7 @@ const sess = {
     sameSite: 'lax',
   },
   resave: false,
-  saveUninitialized: true,
+  saveUninitialized: false,
   store: new SequelizeStore({
     db: sequelize,
   }),

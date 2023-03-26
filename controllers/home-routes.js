@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { User, Dish } = require("../models");
+const withAuth = require('../utils/auth');
 
 router.get("/", async (req, res) => {
   try {
@@ -9,14 +10,24 @@ router.get("/", async (req, res) => {
     });
     const dishes = dishData.map((dish) => dish.get({ plain: true }));
     console.log(dishes);
-    res.render("pages/homepage", { dishes });
+    req.session.save(() => {
+      
+      if (req.session.countVisit) {
+     
+        req.session.countVisit++;
+      } else {
+        
+        req.session.countVisit = 1;
+      }
+    res.render("pages/homepage", { dishes, countVisit: req.session.countVisit,  loggedIn: req.session.loggedIn, });
+  });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 // CREATE NEW DISH FROM MODAL ROUTE
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
     const { dish_name, description, price, userId } = req.body;
     if (!dish_name || !description || !price || !userId) {
