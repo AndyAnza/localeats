@@ -1866,11 +1866,6 @@ video {
     background-color: rgb(253 186 116 / var(--tw-bg-opacity));
   }
 
-  .dark\:bg-orange-200 {
-    --tw-bg-opacity: 1;
-    background-color: rgb(254 215 170 / var(--tw-bg-opacity));
-  }
-
   .dark\:text-gray-300 {
     --tw-text-opacity: 1;
     color: rgb(209 213 219 / var(--tw-text-opacity));

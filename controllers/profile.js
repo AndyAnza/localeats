@@ -42,20 +42,20 @@ router.get("/my-profile", withAuth, async (req, res) => {
   }
 });
 
-//GET ROUTE TO PROFILE SETTINGS
-router.get("/my-settings", withAuth, async (req, res) => {
-  try {
-    const newUserData = await User.findAll({});
-    const newUser = newUserData.map((user) => user.get({ plain: true }));
-    console.log(newUser);
-    res.render("pages/my-profile", {
-      newUser,
-      countVisit: req.session.countVisit,
-      loggedIn: req.session.loggedIn,
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// //GET ROUTE TO PROFILE SETTINGS
+// router.get("/my-settings", withAuth, async (req, res) => {
+//   try {
+//     const newUserData = await User.findAll({});
+//     const newUser = newUserData.map((user) => user.get({ plain: true }));
+//     console.log(newUser);
+//     res.render("pages/my-profile", {
+//       newUser,
+//       countVisit: req.session.countVisit,
+//       loggedIn: req.session.loggedIn,
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;

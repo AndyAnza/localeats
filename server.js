@@ -28,7 +28,7 @@ const sess = {
     secure: false, // change to true before deployment
     sameSite: "lax",
   },
-  resave: false,
+  resave: true,
   saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
