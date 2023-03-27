@@ -49,8 +49,9 @@ router.get("/", async (req, res) => {
 //CREATE NEW DISH FROM MODAL ROUTE
 router.post("/", upload.single("image"), async (req, res) => {
   try {
-    const { dish_name, description, price, userId } = req.body;
+    const { dish_name, description, price } = req.body;
     const image = req.file;
+    const userId = req.session.userId;
     console.log(image);
     if (!dish_name || !description || !price || !userId || image === null) {
       return res.status(400).json({ error: "Missing required properties" });
@@ -85,7 +86,8 @@ router.post("/", withAuth, async (req, res) => {
     res.redirect("/login");
   } else {
     try {
-      const { dish_name, description, price, userId } = req.body;
+      const userId = req.session.userId;
+      const { dish_name, description, price } = req.body;
       if (!dish_name || !description || !price || !userId) {
         return res.status(400).json({ error: "Missing required properties" });
       }
