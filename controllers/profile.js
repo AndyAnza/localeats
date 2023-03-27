@@ -18,9 +18,10 @@ router.get("/signup", async (req, res) => {
 });
 
 // GET ROUTE TO MY-PROFILE
-router.get("/:userId", withAuth, async (req, res) => {
+router.get("/my-profile", withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(req.params, {
+    const userId = req.session.userId;
+    const userData = await User.findByPk(userId, {
       include: [{ model: Dish }],
     });
     const userPosts = userData.get({ plain: true });
@@ -31,6 +32,7 @@ router.get("/:userId", withAuth, async (req, res) => {
     }
     console.log(userPosts);
     res.render("pages/my-profile", {
+      id: userId,
       userPosts,
       countVisit: req.session.countVisit,
       loggedIn: req.session.loggedIn,
@@ -46,9 +48,10 @@ router.get("/my-settings", withAuth, async (req, res) => {
     const newUserData = await User.findAll({});
     const newUser = newUserData.map((user) => user.get({ plain: true }));
     console.log(newUser);
-    res.render("pages/settings-profile", {
+    res.render("pages/my-profile", {
       newUser,
       countVisit: req.session.countVisit,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
