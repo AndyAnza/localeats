@@ -1,5 +1,20 @@
 const router = require("express").Router();
 const { User, Dish } = require("../models");
+
+const multer = require("multer");
+const path = require("path");
+
+const storage = multer.diskStorage({
+  destination: "../images",
+  filename: function(req, file, cb){
+    return cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
+  }
+})
+
+const upload = multer({
+  storage: storage
+})
+
 const withAuth = require("../utils/auth");
 
 // HOME ROUTE TO SEE ALL DISHES OF ALL USERS
@@ -27,6 +42,27 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+
+//CREATE NEW DISH FROM MODAL ROUTE
+router.post("/", upload.single("image"), async (req, res) => {
+  try {
+    const { dish_name, description, price, userId } = req.body;
+    const image = req.file;
+    console.log(image);
+    if (!dish_name || !description || !price || !userId || image === null) {
+      return res.status(400).json({ error: "Missing required properties" });
+    }
+    const newDish = await Dish.create({
+      dish_name,
+      description,
+      price,
+      userId,
+      image,
+    });
+    res.status(202).json({ message: "Dish created", dish: newDish });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
 
 // ROUTE TO LOGIN
 // IF LOGGED IN RENDER HOME

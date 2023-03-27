@@ -26,9 +26,10 @@ Dish.init(
         isDecimal: true,
       },
     },
-    // location: {
-    //   //<--TODO
-    // },
+    image: {
+      type: DataTypes.BLOB('long'),
+      allowNull: false
+    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,

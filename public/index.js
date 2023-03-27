@@ -3,6 +3,7 @@ async function newFormHandler(event) {
   const dish_name = document.querySelector("#dish_name").value;
   const description = document.querySelector("#description").value;
   const price = document.querySelector("#price").value;
+  const image = document.querySelector("#image").value;
   // const userId = document.querySelector("#userId").value;
   console.log(event);
   // Send fetch request to add a new dish
@@ -13,11 +14,22 @@ async function newFormHandler(event) {
       description,
       price,
       userId: 1,
+      image,
     }),
     headers: {
       "Content-Type": "application/json",
     },
   });
+
+//   const imageResponse = await fetch(`/`, {
+//   method: "POST",
+//   body: JSON.stringify({
+//     image,
+//   }),
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+// });
 
   // If the dish is added, the 'all' template will be rerendered
   if (response.ok) {
