@@ -3,6 +3,8 @@ const { User, Dish, Comment } = require("../models");
 const withAuth = require("../utils/auth");
 
 
+
+// ROUTE DELETE DISH FROM USER
 router.delete("/:userId/:dishId", withAuth, async (req, res) => {
   try {
     const { userId, dishId } = req.params;
