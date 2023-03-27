@@ -6,14 +6,17 @@ const path = require("path");
 
 const storage = multer.diskStorage({
   destination: "../images",
-  filename: function(req, file, cb){
-    return cb(null, file.fieldname + "-" + Date.now() + path.extname(file.originalname));
-  }
-})
+  filename: function (req, file, cb) {
+    return cb(
+      null,
+      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+    );
+  },
+});
 
 const upload = multer({
-  storage: storage
-})
+  storage: storage,
+});
 
 const withAuth = require("../utils/auth");
 
@@ -43,7 +46,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-
 //CREATE NEW DISH FROM MODAL ROUTE
 router.post("/", upload.single("image"), async (req, res) => {
   try {
@@ -63,6 +65,8 @@ router.post("/", upload.single("image"), async (req, res) => {
     res.status(202).json({ message: "Dish created", dish: newDish });
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+});
 
 // ROUTE TO LOGIN
 // IF LOGGED IN RENDER HOME
