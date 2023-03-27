@@ -1,18 +1,18 @@
 const express = require("express");
 const session = require("express-session");
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const SequelizeStore = require("connect-session-sequelize")(session.Store);
 const sequelize = require("./config/connection");
 const controllers = require("./controllers");
 const helpers = require("./utils/helpers");
 
 const exphbs = require("express-handlebars");
 const path = require("path");
-const hbs = exphbs.create({ 
+const hbs = exphbs.create({
   // Specify the folder for partials
-  partialsDir: 'views/partials',
+  partialsDir: "views/partials",
   helpers,
   // Specify the layout template
-  defaultLayout: 'main'
+  defaultLayout: "main",
 });
 
 const app = express();
@@ -26,10 +26,10 @@ const sess = {
     maxAge: 24 * 60 * 60 * 1000,
     httpOnly: false, // change once we have https cert
     secure: false, // change to true before deployment
-    sameSite: 'lax',
+    sameSite: "lax",
   },
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: true,
   store: new SequelizeStore({
     db: sequelize,
   }),
@@ -43,14 +43,6 @@ app.set("view engine", "handlebars");
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static("public"));
-
-// app.get("/", (req, res) => {
-//   res.render("homepage", { layout: "main" });
-// });
-
-// app.get("/card", (req, res) => {
-//   res.render("timeline", { layout: "main", data });
-// });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(controllers);
