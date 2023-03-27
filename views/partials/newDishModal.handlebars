@@ -41,6 +41,9 @@
     <form
       class="bg-white shadow-sm ring-1 ring-gray-900/5 sm:rounded-xl md:col-span-2"
       id="newDishForm"
+      method="POST"
+      enctype="multipart/form-data"
+      action="/"
     >
       <div class="px-4 py-6 sm:p-8">
         <div class="grid max-w-2xl grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
@@ -125,13 +128,13 @@
                 </svg>
                 <div class="mt-4 flex text-sm leading-6 text-gray-600">
                   <label
-                    for="file-upload"
+                    for="image"
                     class="relative cursor-pointer rounded-md bg-white font-semibold text-orange-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-orange-600 focus-within:ring-offset-2 hover:text-orange-500"
                   >
                     <span>Upload a file</span>
                     <input
-                      id="file-upload"
-                      name="file-upload"
+                      id="image"
+                      name="image"
                       type="file"
                       class="sr-only"
                     />
