@@ -6,7 +6,7 @@ const dishSeedData = require("./dishSeedData.json");
 const commentSeedData = require("./commentSeedData.json");
 
 const seedDatabase = async () => {
-  await sequelize.sync({ force: true });
+  await sequelize.sync({ force: false });
 
   await User.bulkCreate(userSeedData, {
     individualHooks: true,
