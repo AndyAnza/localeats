@@ -33,13 +33,12 @@ User.init(
     },
     phone: {
       type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: 0,
     },
 
     location: {
       type: DataTypes.STRING,
     },
-
 
     password: {
       type: DataTypes.STRING,

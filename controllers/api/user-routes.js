@@ -1,28 +1,12 @@
 const router = require("express").Router();
 const User = require("../../models/User");
 
-// Get One User for LogIn
-router.get("/login/:id", async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id);
-    if (!userData) {
-      res.status(404).json({ message: "No user with that id." });
-      return;
-    }
-    const user = userData.get({ plain: true });
-    res.status(200).json(user);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
-
-//create new user
-router.post("/new", async (req, res) => {
+//ROUTE NEW USER
+router.post("/", async (req, res) => {
   try {
     const userData = await User.create({
       user_name: req.body.user_name,
       email: req.body.email,
-      phone: req.body.phone,
       password: req.body.password,
     });
 
@@ -36,7 +20,7 @@ router.post("/new", async (req, res) => {
   }
 });
 
-// Login
+// POST ROUTE TO LOG IN
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -61,7 +45,6 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {
       req.session.loggedIn = true;
 
@@ -75,9 +58,8 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// Logout
+// ROUTE TO LOG OUT
 router.post("/logout", (req, res) => {
-  // When the user logs out, destroy the session
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
