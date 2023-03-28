@@ -8,7 +8,7 @@
     "build-styles": "npx tailwindcss -i ./public/style/dev-style.css -o ./public/style/style.css .css",
     "dev": "nodemon server.js",
     "seed": "node seeds/seed.js",
-    "start": "npm run build-styles && node server.js && npm run seed"
+    "start": "npm run seed && npm run build-styles && node server.js"
   },
   "repository": {
     "type": "git",
