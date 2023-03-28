@@ -6,7 +6,8 @@
   "scripts": {
     "styles": "npx tailwindcss -i ./public/style/dev-style.css -o ./public/style/style.css .css --watch --verbose",
     "build-styles": "npx tailwindcss -i ./public/style/dev-style.css -o ./public/style/style.css .css",
-    "start": "nodemon server.js",
+    "start": "node server.js",
+    "dev": "nodemon server.js",
     "build": "npm run build-styles && node server.js",
     "seed": "node seeds/seed.js"
   },
