@@ -1,22 +1,22 @@
 const router = require("express").Router();
 const { User, Dish } = require("../models");
 
-const multer = require("multer");
+// const multer = require("multer");
 const path = require("path");
 
-const storage = multer.diskStorage({
-  destination: "../images",
-  filename: function (req, file, cb) {
-    return cb(
-      null,
-      file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-    );
-  },
-});
+// const storage = multer.diskStorage({
+//   destination: "../images",
+//   filename: function (req, file, cb) {
+//     return cb(
+//       null,
+//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+//     );
+//   },
+// });
 
-const upload = multer({
-  storage: storage,
-});
+// const upload = multer({
+//   storage: storage,
+// });
 
 const withAuth = require("../utils/auth");
 
@@ -47,13 +47,13 @@ router.get("/", async (req, res) => {
 });
 
 //CREATE NEW DISH FROM MODAL ROUTE
-router.post("/", upload.single("image"), async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const { dish_name, description, price } = req.body;
-    const image = req.file;
+    // const image = req.file;
     const userId = req.session.userId;
     console.log(image);
-    if (!dish_name || !description || !price || !userId || image === null) {
+    if (!dish_name || !description || !price || !userId) {
       return res.status(400).json({ error: "Missing required properties" });
     }
     const newDish = await Dish.create({
@@ -61,7 +61,6 @@ router.post("/", upload.single("image"), async (req, res) => {
       description,
       price,
       userId,
-      image,
     });
     res.status(202).json({ message: "Dish created", dish: newDish });
   } catch (err) {
