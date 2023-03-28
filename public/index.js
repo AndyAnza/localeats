@@ -55,3 +55,16 @@ cancelBtn.addEventListener("click", () => {
 newDishBtn.addEventListener("click", () => {
   modalCard.classList.remove("invisible");
 });
+
+// Menu Profile
+const menuCard = document.getElementById("menuCard");
+const faviconBtn = document.getElementById("faviconBtn");
+const closeBtn = document.getElementById("closeBtn");
+// Add a click event listener to the cancel button in the modal to close.
+closeBtn.addEventListener("click", () => {
+  menuCard.classList.add("invisible");
+});
+// Modal appears after click New Dish Button.
+faviconBtn.addEventListener("click", () => {
+  menuCard.classList.remove("invisible");
+});
