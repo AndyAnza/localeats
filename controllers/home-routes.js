@@ -50,24 +50,24 @@ router.get("/", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const { dish_name, description, price } = req.body;
-    // const image = req.file;
     const userId = req.session.userId;
-    console.log(image);
+
     if (!dish_name || !description || !price || !userId) {
       return res.status(400).json({ error: "Missing required properties" });
     }
+
     const newDish = await Dish.create({
       dish_name,
       description,
       price,
       userId,
     });
+
     res.status(202).json({ message: "Dish created", dish: newDish });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
-
 // ROUTE TO LOGIN
 // IF LOGGED IN RENDER HOME
 router.get("/login", (req, res) => {

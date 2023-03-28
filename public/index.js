@@ -1,9 +1,9 @@
+// CREATE NEW DISH FROM MODAL FORM
 async function newFormHandler(event) {
   event.preventDefault();
   const dish_name = document.querySelector("#dish_name").value;
   const description = document.querySelector("#description").value;
   const price = document.querySelector("#price").value;
-  const image = document.querySelector("#image").value;
 
   // Send fetch request to add a new dish
   const response = await fetch(`/`, {
@@ -12,22 +12,11 @@ async function newFormHandler(event) {
       dish_name,
       description,
       price,
-      image,
     }),
     headers: {
       "Content-Type": "application/json",
     },
   });
-
-  //   const imageResponse = await fetch(`/`, {
-  //   method: "POST",
-  //   body: JSON.stringify({
-  //     image,
-  //   }),
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  // });
 
   // If the dish is added, the 'all' template will be rerendered
   if (response.ok) {
