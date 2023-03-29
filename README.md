@@ -15,7 +15,8 @@ The application is built using HTML, CSS (tailwind), javascript, Node.js, Expres
     The deployed application can be found at https://localeats.heroku.app  
 
 
-
+## URL
+https://localeats.herokuapp.com/
   
   
 
